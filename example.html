@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glam Go Fest</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="theme-glam">
+
+  <!-- ЗАДАНИЕ 0: этот баннер закрывает сайт. Найди его в DevTools и удали -->
+  <div class="popup" id="popup">
+    <p>СКИДКА 50%! Купи сейчас! Закрыть нельзя!</p>
+  </div>
+
+  <header class="top">
+    <a class="logo" href="#">Glam Go Fest</a>
+    <nav>
+      <a href="#about">О фестивале</a>
+      <a href="#lineup">Лайнап</a>
+      <a href="#tickets">Билеты</a>
+      <a href="#faq">Вопросы</a>
+    </nav>
+    <div class="themes">
+      <button class="theme-btn" data-theme="theme-glam" aria-label="Тема Glam">🎀</button>
+      <button class="theme-btn" data-theme="theme-sunset" aria-label="Тема Sunset">🌇</button>
+      <button class="theme-btn" data-theme="theme-concrete" aria-label="Тема Concrete">🏭</button>
+      <button class="theme-btn" data-theme="theme-ice" aria-label="Тема Ice">🧊</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1><span>Glam Go</span><span class="outline">Fest</span></h1>
+    <p class="when">1 августа 2026</p>
+    <p class="where">Москва, площадка Red Summer у ЦСКА Арены, район ЗИЛ</p>
+    <p class="count-label">До начала:</p>
+    <p class="countdown" id="countdown">...</p>
+    <button class="btn" id="secret-btn">Получить промокод</button>
+    <p class="secret hidden" id="secret">Твой промокод: <b>GLAM10 (учебный, скидки на самом деле нет)</b></p>
+  </section>
+
+  <div class="ticker">
+    <div class="ticker-track">Gone.Fludd ★ ЛСП ★ Dopeclvb (Thomas Mraz, i61, Basic Boy) ★ Cakeboy ★ Iroh ★ Flipper Floyd ★ Tanya Tekis ★ Lizer ★ Tveth ★ Валюта Скуратов ★ Hellovercavi ★ Ada</div>
+  </div>
+
+  <main>
+    <section id="about">
+      <h2>О фестивале</h2>
+      <p class="about-text">Хип-хоп-фестиваль под открытым небом, который вернулся в Москву впервые за 5 лет. Двенадцать артистов, большой танцпол и фан-зона для тех, кто пришёл за живым звуком.</p>
+      <div class="features">
+        <div class="feature"><div class="icon">🎶</div><h3>12 артистов</h3><p>Gone.Fludd, ЛСП, Dopeclvb и другие выйдут на одну сцену за один день.</p></div>
+        <div class="feature"><div class="icon">🕺</div><h3>Танцпол и фан-зона</h3><p>Вместительный танцпол и фан-зона на 5000 человек.</p></div>
+        <div class="feature"><div class="icon">🍔</div><h3>Еда и напитки</h3><p>На площадке будут фудкорты и бары.</p></div>
+        <!-- ЗАДАНИЕ: скопируй блок .feature целиком и сделай четвёртую особенность -->
+      </div>
+    </section>
+
+    <section id="zones">
+      <h2>Зоны площадки</h2>
+      <div class="filters">
+        <button class="btn btn-small tab-btn" data-tab="zone1">Танцпол</button>
+        <button class="btn btn-small tab-btn" data-tab="zone2">Фан-зона</button>
+        <button class="btn btn-small tab-btn" data-tab="zone3">Фудкорты и бары</button>
+      </div>
+      <div class="tab" id="zone1"><h3>Танцпол</h3><p>Ближе всего к сцене, для тех, кто пришёл прыгать.</p></div>
+      <div class="tab hidden" id="zone2"><h3>Фан-зона</h3><p>Фан-зона на 5000 человек.</p></div>
+      <div class="tab hidden" id="zone3"><h3>Фудкорты и бары</h3><p>Можно поесть и выпить между выступлениями.</p></div>
+    </section>
+
+    <section id="lineup">
+      <h2>Лайнап</h2>
+      <div class="filters">
+        <button class="btn btn-small filter-btn" data-filter="all">Все</button>
+        <button class="btn btn-small filter-btn" data-filter="main">Dopeclvb</button>
+        <button class="btn btn-small filter-btn" data-filter="other">Соло</button>
+      </div>
+      <div class="cards" id="lineup-cards"></div>
+      <div class="random">
+        <button class="btn" id="random-btn">Случайный трек</button>
+        <p id="random-out"></p>
+      </div>
+    </section>
+
+    <section id="tickets">
+      <h2>Билеты</h2>
+      <p class="note">Цены в этом примере выдуманы для учебного проекта.</p>
+      <div class="tickets">
+        <div class="ticket" data-price="2500">
+          <h3>Фан-зона</h3><p>Место в фан-зоне на 5000 человек.</p>
+          <p class="price">2500 ₽</p>
+          <div class="counter"><button class="btn btn-small minus">−</button><span class="qty">0</span><button class="btn btn-small plus">+</button></div>
+        </div>
+        <div class="ticket" data-price="4000">
+          <h3>Танцпол</h3><p>Самое близкое место к сцене.</p>
+          <p class="price">4000 ₽</p>
+          <div class="counter"><button class="btn btn-small minus">−</button><span class="qty">0</span><button class="btn btn-small plus">+</button></div>
+        </div>
+        <div class="ticket" data-price="5500">
+          <h3>Быстрый вход</h3><p>Доступ на площадку без очередей.</p>
+          <p class="price">5500 ₽</p>
+          <div class="counter"><button class="btn btn-small minus">−</button><span class="qty">0</span><button class="btn btn-small plus">+</button></div>
+        </div>
+      </div>
+      <p class="total" id="total">Итого: 0 ₽</p>
+      <button class="btn" id="rules-btn">Правила входа</button>
+      <!-- ЗАДАНИЕ: скопируй блок .ticket и добавь четвёртый тип билета -->
+    </section>
+
+    <section id="faq">
+      <h2>Вопросы и ответы</h2>
+      <div class="faq-item"><button class="faq-q">Где пройдёт фестиваль?</button><p class="faq-a hidden">Под открытым небом на площадке Red Summer у ЦСКА Арены, в районе ЗИЛ.</p></div>
+      <div class="faq-item"><button class="faq-q">Кто выступит?</button><p class="faq-a hidden">Gone.Fludd, ЛСП, Dopeclvb (Thomas Mraz, i61, Basic Boy) и ещё девять артистов.</p></div>
+      <div class="faq-item"><button class="faq-q">Что будет кроме музыки?</button><p class="faq-a hidden">Фудкорты, бары и розыгрыши призов и билетов в соцсетях организаторов.</p></div>
+    </section>
+
+    <section id="vote">
+      <h2>Голосование</h2>
+      <p class="about-text">Чей сет ты ждёшь больше всего?</p>
+      <div class="vote-row"><button class="btn btn-small vote-btn">i61</button><div class="bar"><div class="bar-fill"></div></div><span class="vote-count">0</span></div>
+      <div class="vote-row"><button class="btn btn-small vote-btn">Basic Boy</button><div class="bar"><div class="bar-fill"></div></div><span class="vote-count">0</span></div>
+      <div class="vote-row"><button class="btn btn-small vote-btn">Thomas Mraz</button><div class="bar"><div class="bar-fill"></div></div><span class="vote-count">0</span></div>
+    </section>
+
+    <section id="wall">
+      <h2>Стена отзывов</h2>
+      <p class="about-text">Что ты ждёшь от фестиваля?</p>
+      <div class="sub">
+        <input type="text" id="wall-text" placeholder="Напиши пару слов">
+        <button class="btn" id="wall-btn">Отправить</button>
+      </div>
+      <div class="wall" id="wall-list"></div>
+    </section>
+
+    <section id="subscribe">
+      <h2>Узнай первым</h2>
+      <div class="sub">
+        <input type="text" id="sub-name" placeholder="Твоё имя">
+        <button class="btn" id="sub-btn">Подписаться</button>
+      </div>
+      <p id="sub-msg"></p>
+    </section>
+  </main>
+
+  <footer>Учебный проект. Состав, площадка и описание взяты из публичных анонсов Glam Go Fest, цены, промокод и правила выдуманы.</footer>
+
+  <div class="modal hidden" id="modal">
+    <div class="modal-box">
+      <h3>Правила входа</h3>
+      <ul><li>Проверь возрастное ограничение у организаторов.</li><li>Большие сумки лучше оставить дома.</li><li>Приходи заранее, чтобы пройти вход без спешки.</li></ul>
+      <button class="btn" id="modal-close">Понятно</button>
+    </div>
+  </div>
+
+  <button class="to-top hidden" id="to-top" aria-label="Наверх">↑</button>
+
+  <script src="example.js"></script>
+</body>
+</html>
